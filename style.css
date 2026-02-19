@@ -95,25 +95,38 @@
     color: white;
   }
   
-  /* Right Sidebar - sticky */
-  .sidebar {
+  /* Sidebar Container - holds both nav and socials */
+  .sidebar-container {
     position: sticky;
     top: 60px;
     display: flex;
     flex-direction: column;
-    text-align: right;
-    height: fit-content;
+    justify-content: space-between;
     min-width: 120px;
+    height: calc(100vh - 120px);
   }
   
-  /* Socials Section - now at bottom of content */
+  /* Right Sidebar - at top */
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+  }
+  
+  /* Socials Section - at bottom right */
   .socials {
     color: white;
     font-size: 1rem;
     line-height: 1.5;
-    margin-top: 60px;
-    padding-top: 40px;
-    border-top: 1px solid rgba(255,255,255,0.3);
+    text-align: right;
+  }
+  
+  /* Copyright Footer */
+  .copyright {
+    text-align: center;
+    padding: 30px 20px;
+    font-size: 0.85rem;
+    opacity: 0.7;
   }
   
   .sidebar a {
@@ -157,13 +170,18 @@
       padding: 40px 20px;
     }
 
-    .sidebar {
+    .sidebar-container {
       position: static;
+      height: auto;
+      order: -1;
+      margin-bottom: 30px;
+    }
+
+    .sidebar {
       flex-direction: row;
       justify-content: center;
       gap: 20px;
       text-align: center;
-      order: -1;
       margin-bottom: 30px;
     }
 
@@ -177,6 +195,9 @@
 
     .socials {
       text-align: center;
-      margin-top: 40px;
+    }
+
+    .copyright {
+      padding: 20px;
     }
   }
