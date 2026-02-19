@@ -64,6 +64,7 @@
   .main-container {
     display: grid;
     grid-template-columns: 1fr 180px;
+    grid-template-rows: auto 1fr auto;
     max-width: 1400px;
     margin: 0 auto;
     padding: 60px 40px;
@@ -73,7 +74,8 @@
   
   /* Left Content Section */
   .content {
-    flex: 1;
+    grid-column: 1;
+    grid-row: 1;
     line-height: 1.6;
     font-size: 0.9rem;
     min-width: 0;
@@ -98,6 +100,8 @@
   
   /* Right Sidebar - sticky at top */
   .sidebar {
+    grid-column: 2;
+    grid-row: 1;
     position: sticky;
     top: 60px;
     display: flex;
@@ -110,17 +114,20 @@
   /* Socials Section - positioned in grid, aligned bottom right */
   .socials {
     grid-column: 2;
-    align-self: end;
+    grid-row: 2;
+    align-self: start;
     justify-self: end;
     color: white;
     font-size: 1rem;
     line-height: 1.5;
     text-align: right;
-    margin-bottom: 60px;
+    margin-top: 20px;
   }
   
   /* Copyright Footer */
   .copyright {
+    grid-column: 1 / -1;
+    grid-row: 3;
     text-align: center;
     padding: 30px 20px;
     font-size: 0.85rem;
@@ -166,16 +173,23 @@
   @media screen and (max-width: 768px) {
     .main-container {
       grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto auto;
       padding: 40px 20px;
     }
 
     .sidebar {
+      grid-column: 1;
+      grid-row: 1;
       position: static;
       flex-direction: row;
       justify-content: center;
       gap: 20px;
       text-align: center;
-      order: -1;
+    }
+
+    .content {
+      grid-column: 1;
+      grid-row: 2;
     }
 
     .content h1 {
@@ -188,13 +202,15 @@
 
     .socials {
       grid-column: 1;
+      grid-row: 3;
       justify-self: center;
       text-align: center;
       margin-top: 40px;
-      margin-bottom: 0;
     }
 
     .copyright {
+      grid-column: 1;
+      grid-row: 4;
       padding: 20px;
     }
   }
