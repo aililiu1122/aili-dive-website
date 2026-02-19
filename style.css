@@ -54,21 +54,28 @@
   
   /* Main Page */
   #main-page {
-    display: flex;
-    flex-direction: row;
     min-height: 100vh;
     background-color: #4684bf;
     color: white;
     position: relative;
   }
   
+  /* Main Container - holds content and sidebar */
+  .main-container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 40px;
+    gap: 60px;
+  }
+  
   /* Left Content Section */
   .content {
     flex: 1;
-    padding-left: 280px;
-    padding-top: 60px;
     line-height: 1.6;
     font-size: 0.9rem;
+    min-width: 0;
   }
   
   .content h1 {
@@ -88,28 +95,25 @@
     color: white;
   }
   
-  /* Right Sidebar */
+  /* Right Sidebar - sticky */
   .sidebar {
-    position: fixed;
-    top: 95px;
-    right: 200px;
-    transform: none;
+    position: sticky;
+    top: 60px;
     display: flex;
     flex-direction: column;
     text-align: right;
-    z-index: 10;
+    height: fit-content;
+    min-width: 120px;
   }
   
-  /* Socials Section */
+  /* Socials Section - now at bottom of content */
   .socials {
-    position: fixed;
-    bottom: 100px;
-    right: 200px;
     color: white;
     font-size: 1rem;
     line-height: 1.5;
-    text-align: right;
-    z-index: 10;
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255,255,255,0.3);
   }
   
   .sidebar a {
@@ -141,55 +145,38 @@
   
   /* Media Queries for Responsive Design */
   @media screen and (max-width: 1200px) {
-    .content {
-        padding-left: 120px;
-    }
-
-    .sidebar {
-        right: 80px;
-    }
-
-    .socials {
-        right: 80px;
+    .main-container {
+      padding: 40px 30px;
+      gap: 40px;
     }
   }
 
   @media screen and (max-width: 768px) {
-    #main-page {
-        flex-direction: column;
-        padding: 20px;
-    }
-
-    .content {
-        padding-left: 20px;
-        padding-top: 40px;
+    .main-container {
+      flex-direction: column;
+      padding: 40px 20px;
     }
 
     .sidebar {
-        position: static;
-        flex-direction: row;
-        justify-content: center;
-        gap: 20px;
-        margin: 20px 0;
-        text-align: center;
-        top: auto;
-        right: auto;
-    }
-
-    .socials {
-        position: static;
-        text-align: center;
-        margin: 20px auto;
-        bottom: auto;
-        right: auto;
+      position: static;
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+      text-align: center;
+      order: -1;
+      margin-bottom: 30px;
     }
 
     .content h1 {
-        font-size: 2rem;
+      font-size: 2rem;
     }
 
     .quote {
-        font-size: 1.2rem;
+      font-size: 1.2rem;
+    }
+
+    .socials {
+      text-align: center;
+      margin-top: 40px;
     }
   }
-  
