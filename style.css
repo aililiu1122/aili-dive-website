@@ -121,7 +121,7 @@
     font-size: 1rem;
     line-height: 1.5;
     text-align: right;
-    margin-top: 20px;
+    margin-top: -120px;
   }
   
   /* Copyright Footer */
@@ -129,6 +129,7 @@
     grid-column: 1 / -1;
     grid-row: 3;
     text-align: center;
+    width: 100%;
     padding: 30px 20px;
     font-size: 0.85rem;
     opacity: 0.7;
